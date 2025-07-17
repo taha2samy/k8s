@@ -4,13 +4,13 @@
 module "ecr" {
   source       = "./modules/ecr"
   cluster_name = var.cluster_name
-  
+
 }
 
 resource "local_file" "ecr_secret_file" {
-  content  = module.ecr.config_ecr_secret_file
+  content    = module.ecr.config_ecr_secret_file
   depends_on = [module.ecr]
-  filename = "${path.module}/ecr-image-pull-secret.json"
+  filename   = "${path.module}/ecr-image-pull-secret.json"
 }
 
 

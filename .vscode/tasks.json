@@ -1,0 +1,234 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Terraform: Init",
+            "type": "shell",
+            "command": "terraform init",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Initializes a Terraform working directory, downloading providers and modules."
+        },
+        {
+            "label": "Terraform: Plan",
+            "type": "shell",
+            "command": "terraform plan",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Generates and shows an execution plan of changes Terraform would make."
+        },
+        {
+            "label": "Terraform: Apply (Auto Approve)",
+            "type": "shell",
+            "command": "terraform apply --auto-approve",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Applies the planned changes to create or modify infrastructure, automatically approving."
+        },
+        {
+            "label": "Terraform: Destroy (Auto Approve)",
+            "type": "shell",
+            "command": "terraform destroy --auto-approve",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Destroys all Terraform-managed infrastructure, automatically approving."
+        },
+        {
+            "label": "Terraform: Validate",
+            "type": "shell",
+            "command": "terraform validate",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Verifies the configuration is syntactically valid and internally consistent."
+        },
+        {
+            "label": "Terraform: Format (fmt)",
+            "type": "shell",
+            "command": "terraform fmt",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Rewrites Terraform configuration files to a canonical format."
+        },
+        {
+            "label": "Terraform: Get (Modules)",
+            "type": "shell",
+            "command": "terraform get",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Downloads and installs modules for the configuration."
+        },
+        {
+            "label": "Terraform: Show Current State",
+            "type": "shell",
+            "command": "terraform show",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Shows the current state of the infrastructure managed by Terraform."
+        },
+        {
+            "label": "Terraform: Show All Outputs",
+            "type": "shell",
+            "command": "terraform output",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Displays all output values from the state file."
+        },
+        {
+            "label": "Terraform: List State Resources",
+            "type": "shell",
+            "command": "terraform state list",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Lists all managed resources in the current state."
+        },
+        {
+            "label": "Terraform: Version",
+            "type": "shell",
+            "command": "terraform version",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Displays the Terraform version and provider versions."
+        },
+        {
+            "label": "Terraform: Graph (Requires Graphviz)",
+            "type": "shell",
+            "command": "terraform graph | dot -Tpng > ./../graph.png && echo 'Graph generated in graph.png'",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true,
+                "close": true
+            },
+            "detail": "Generates a visual dependency graph of resources. Requires Graphviz 'dot' utility."
+        },
+        {
+            "label": "Terraform: Workspace List",
+            "type": "shell",
+            "command": "terraform workspace list",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Lists all existing Terraform workspaces."
+        },
+        {
+            "label": "Terraform: Workspace Show",
+            "type": "shell",
+            "command": "terraform workspace show",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Shows the name of the current Terraform workspace."
+        },
+        {
+            "label": "Terraform: Workspace New (Edit Command)",
+            "type": "shell",
+            "command": "terraform workspace new <your-new-workspace-name-here>",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Creates and selects a new Terraform workspace. **You need to edit the command manually.**"
+        },
+        {
+            "label": "Terraform: Workspace Select (Edit Command)",
+            "type": "shell",
+            "command": "terraform workspace select <existing-workspace-name-here>",
+            "options": {
+                "cwd": "./terraform"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "clear": true
+            },
+            "detail": "Selects an existing Terraform workspace. **You need to edit the command manually.**"
+        }
+    ]
+}

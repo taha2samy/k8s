@@ -22,10 +22,10 @@ variable "cluster_name" {
 variable "desired_worker_count" {
   type = number
 }
-variable "min_worker_count" {
+variable "min_worker_cpu_count" {
   type = number
 }
-variable "max_worker_count" {
+variable "max_worker_cpu_count" {
   type = number
 }
 variable "kubeadm_join_command" {
@@ -38,4 +38,5 @@ variable "kubeconfig_content" {
 }
 variable "ansible_user" {
   type = string
+  default = "ubuntu"
 }

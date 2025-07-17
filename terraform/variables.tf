@@ -22,21 +22,21 @@ variable "worker_instance_type" {
   default     = "t3.medium"
 }
 variable "desired_capacity" {
-  description = "The desired number of worker nodes in the Kubernetes cluster."
+  description = "The desired number of worker CPUs in the Kubernetes cluster."
   type        = number
-  default     = 2
-  
+  default     = 8
+
 }
 
-variable "min_worker_count" {
-  description = "The minimum number of worker nodes in the Kubernetes cluster."
+variable "min_worker_cpu_count" {
+  description = "The minimum number of worker CPUs in the Kubernetes cluster."
   type        = number
-  default     = 1
+  default     = 7
 }
-variable "max_worker_count" {
-  description = "The maximum number of worker nodes in the Kubernetes cluster."
+variable "max_worker_cpu_count" {
+  description = "The maximum number of worker CPUs in the Kubernetes cluster."
   type        = number
-  default     = 3
+  default     = 14
 }
 
 variable "ssh_user" {

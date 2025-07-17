@@ -1,5 +1,5 @@
 provider "kubernetes" {
-   config_path =   data.local_file.kubeconfig_master_file.filename
+  config_path = data.local_file.kubeconfig_master_file.filename
 }
 
 
@@ -7,7 +7,7 @@ provider "kubernetes" {
 resource "kubernetes_secret_v1" "ecr_secret" {
   metadata {
     name      = "ecr-registry-secret"
-    namespace = "default" 
+    namespace = "default"
   }
 
   data = {
