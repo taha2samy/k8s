@@ -1,0 +1,11 @@
+#cloud-config
+packages:
+  - nfs-kernel-server
+
+runcmd:
+  - mkdir -p /srv/nfs/shared
+  - chown 1001:1001 /srv/nfs/shared
+  - chmod 777 /srv/nfs/shared
+  - echo "/srv/nfs/shared 10.0.0.0/16(rw,sync,no_subtree_check,no_root_squash)" >> /etc/exports
+  - exportfs -a
+  - systemctl restart nfs-kernel-server

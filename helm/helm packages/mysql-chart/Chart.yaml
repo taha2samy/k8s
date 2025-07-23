@@ -1,0 +1,5 @@
+apiVersion: v2
+name: mysql-chart
+description: A Helm chart for MySQL StatefulSet
+version: 0.1.0
+appVersion: "5.7"

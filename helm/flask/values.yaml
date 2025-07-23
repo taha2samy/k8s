@@ -1,0 +1,50 @@
+replicaCount: 1
+
+image:
+  repository: 977098995259.dkr.ecr.eu-west-1.amazonaws.com/my-k8s-cluster-backend
+  tag: latest
+  pullPolicy: IfNotPresent
+  private: true
+  
+imagePullSecrets:
+  - name: regcred
+mysql:
+  host: mysql-chart-db  
+  user: root
+  password: root
+  database: BucketList
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 256Mi
+  requests:
+    cpu: 200m
+    memory: 128Mi
+
+service:
+  type: NodePort
+  port: 5002
+  targetPort: 5002
+  nodePort: 30080  
+
+ingress:
+  enabled: true
+  className: "alb"
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: instance
+    
+  hosts:
+    - host: ""
+      paths:
+        - path: /
+          pathType: Prefix
+          
+
+probes:
+  enabled: true
+  livenessPath: /
+  readinessPath: /
+

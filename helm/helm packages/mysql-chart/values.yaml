@@ -1,0 +1,26 @@
+replicaCount: 1
+
+image:
+  repository: 977098995259.dkr.ecr.eu-west-1.amazonaws.com/my-k8s-cluster-database
+  tag: "5.7"
+  pullPolicy: IfNotPresent
+
+mysql:
+  rootPassword: root
+  database: BucketList
+
+storage:
+  size: 1Gi
+  className: "nfs-client"
+
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 250m
+    memory: 256Mi
+
+service:
+  port: 3306

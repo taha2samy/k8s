@@ -1,0 +1,92 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Terraform: Init (All)",
+        "dependsOrder": "sequence",
+        "dependsOn": ["Terraform: Init Infra", "Terraform: Init k8s"]
+      },
+      {
+        "label": "Terraform: Plan (All)",
+        "dependsOrder": "sequence",
+        "dependsOn": ["Terraform: Plan Infra", "Terraform: Plan k8s"]
+      },
+      {
+        "label": "Terraform: Apply (All)",
+        "dependsOrder": "sequence",
+        "dependsOn": ["Terraform: Apply Infra", "Terraform: Apply k8s"]
+      },
+      {
+        "label": "Terraform: Destroy (All)",
+        "dependsOrder": "sequence",
+        "dependsOn": ["Terraform: Destroy k8s", "Terraform: Destroy Infra"]
+      },
+  
+      // =====================
+      // Infrastructure Tasks
+      // =====================
+  
+      {
+        "label": "Terraform: Init Infra",
+        "type": "shell",
+        "command": "terraform init",
+        "options": { "cwd": "./Infrastructure" },
+        "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+      },
+      {
+        "label": "Terraform: Plan Infra",
+        "type": "shell",
+        "command": "terraform plan",
+        "options": { "cwd": "./Infrastructure" },
+        "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+      },
+      {
+        "label": "Terraform: Apply Infra",
+        "type": "shell",
+        "command": "terraform apply --auto-approve",
+        "options": { "cwd": "./Infrastructure" },
+        "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+      },
+      {
+        "label": "Terraform: Destroy Infra",
+        "type": "shell",
+        "command": "terraform destroy --auto-approve",
+        "options": { "cwd": "./Infrastructure" },
+        "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+      },
+  
+      // =================
+      // k8s Tasks
+      // =================
+  
+      {
+        "label": "Terraform: Init k8s",
+        "type": "shell",
+        "command": "terraform init",
+        "options": { "cwd": "./k8s" },
+        "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+      },
+      {
+        "label": "Terraform: Plan k8s",
+        "type": "shell",
+        "command": "terraform plan",
+        "options": { "cwd": "./k8s" },
+        "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+      },
+      {
+        "label": "Terraform: Apply k8s",
+        "type": "shell",
+        "command": "terraform apply --auto-approve",
+        "options": { "cwd": "./k8s" },
+        "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+      },
+      {
+        "label": "Terraform: Destroy k8s",
+        "type": "shell",
+        "command": "terraform destroy --auto-approve",
+        "options": { "cwd": "./k8s" },
+        "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+      }
+    ]
+  }
+  
